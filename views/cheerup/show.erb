@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="show"></div>
+        <h1><%= single_result["message"] %></h1>
+        <aside><%= single_result["email"] %></aside>
+        <%= single_result["likes"] %>
+        <br />
+        <%# <%  if is_logged_in? %> 
+            <a href="/cheerup/<%= single_result["id"] %>/edit"> Edit</a> |
+                <form action="/cheerup/<%= single_result["id"] %>" method="POST">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <input type="submit" value="Delete" />
+                </form>
+        <%# <% else %> 
+            <a href="/login">Please login to edit food</a>
+        <%# <% end %> 
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<% if is_logged_in? %>
+    <h2>Welcome <%= current_user()['first_name'].capitalize %></h2>
+        <form action="/sessions" method="POST">
+            <input  type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Logout">
+        </form>
+<% else %>
+    <button><a href="/login">Login</a> or <a href="/sign_up">Sign up</a></button>
+<% end %>
+<div class="container">
+    <h3>MOST RECENT CHEERUPS</h3>
+    <section class="all_cheerups">
+        <% all_cheerups.each do |cheerup| %>
+        <section class="single_cheerup">
+            <div class="message"><p><%= cheerup["message"] %></p></div>
+            <div class="email"><p><%= cheerup["user_id"] %></p></div>
+
+            <form action="/likes" method="POST">
+                <input type="hidden" name="posts_id" value="<%= cheerup['id'] %>">
+                <button>Like</button>
+            </form>
+
+            
+
+
+            <a href="/cheerup/<%= cheerup["id"] %>">Show</a>
+            <% if is_logged_in? %>
+                <% if current_user["id"] == cheerup["user_id"]%>
+                <a href="/cheerup/<%= cheerup["id"] %>/edit">Edit</a>
+                <% end %>
+            <% end %>
+
+        </section>
+        <% end %>
+    </section>
+</div>
+
+<% if is_logged_in? %>
+    <a href="cheerup/create">Post a Cheerup!</a>
+<% end %>

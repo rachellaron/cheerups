@@ -1,0 +1,14 @@
+<div class="container">
+<h3>WANT TO CHEERUP SOMEONE UP?</h3> 
+<h6>WRITE YOUR CHEERUP</h6>
+    <form action="/cheerup/<%= single_result["id"] %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <textarea maxlenght="250" name="message" id="" cols="30" rows="10" ><%= single_result["message"]%>"</textarea>
+    <button>Create</button>
+  </form>
+
+  <button><a href="/cheerup">Go Home</a></button>
+
+
+</div>
+
