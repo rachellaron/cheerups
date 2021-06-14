@@ -23,7 +23,9 @@ end
 # TO DO --->
 # 1. fix up why some functions wont work in models/controllers for cheerups.
 
-# 3. Set up like button to get likes inserted into database 
+# 3. Get number of likes from posts & Display on Screen 
+
+# 4. Fix up Database tables - Delete Some
 
 
 
