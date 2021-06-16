@@ -18,10 +18,20 @@
     <section class="all_cheerups">
     
     <%likes_count = []%>
+    <%likes_posts = []%>`
+   
+
+    
 
     <% all_likes.each do |like|%>
+        <%likes_posts.append(like["posts_id"])%>
         <%likes_count.append(like["count"])%>
+        <%# <% puts like['posts_id']%> %>
     <% end %>
+<%total = likes_posts.zip(likes_count).to_h%>
+ <%# <%puts likes_count.zip(likes_posts)%> %>
+<%puts total['15']%>
+ 
 
     <% all_cheerups.each_with_index do |cheerup, index|%>              
         <section class="single_cheerup">  
@@ -38,8 +48,12 @@
                 <% end %>
             <%=cheerup["message"]%>
 
+            
+
             <div class="likes">
-                <i class="fas fa-heart"></i> <%=likes_count[index]%>
+            <i class="fas fa-heart"></i><%=likes_count[index]%>
+
+                
             </div>
         </section>    
     <% end %>  
