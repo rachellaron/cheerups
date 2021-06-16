@@ -52,17 +52,17 @@ button a {
   padding: 10px;
   border-radius: 15px;
   color: #2C2C2C;
+  border: 5px blue solid;
 }
 
-.email {
-  font-size: 12px;
-  font-weight: lighter;
-}
+
+
 
 .all_cheerups {
   display: grid;
   gap:15px;
   grid-template-columns: repeat(auto-fill, 300px);
+  border: red solid 5px;
   
 }
 

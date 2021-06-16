@@ -17,7 +17,7 @@ require_relative 'controllers/likes_controller'
 
 
 get '/' do
-  erb :'/cheerup/index'
+  redirect '/cheerup'
 end
 
 # TO DO --->

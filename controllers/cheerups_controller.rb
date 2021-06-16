@@ -1,11 +1,25 @@
-# HOME PAGE INDEX 
+
+# HOME PAGE INDEX - MOST LIKED CHEERUPS
 get '/cheerup' do
   results = all_cheerups
 
-  see_likes()
+  # puts see_likes()
+  all_likes = run_sql("SELECT likes.posts_id, COUNT(*), posts.message
+  FROM likes
+  INNER JOIN posts
+  ON likes.posts_id = posts.id
+  GROUP BY posts_id, posts.message
+  ORDER BY COUNT(*) DESC;")
 
-  erb :'/cheerup/index', locals: { all_cheerups: results,}
+  
+  erb :'/cheerup/index', locals: { all_cheerups: results, all_likes: all_likes}
 end
+
+# # HOME PAGE _ RECENT CHEERUPS 
+get '/cheerup/recent'do
+  results = all_cheerups
+  erb :'/cheerup/recent', locals: {all_cheerups: results}
+end 
 
 # CREATE NEW CHEERUP 
 get '/cheerup/create' do
@@ -58,7 +72,10 @@ put '/cheerup/:id' do |id|
   redirect "/cheerup/#{id}"
 end
 
-# # DELETE SINGLE CHEERUP 
-# delete '/cheerup/:id'
-#   redirect '/cheerup'
-# end
+# DELETE SINGLE CHEERUP 
+delete '/cheerup/:id' do
+  id = params['id']
+  run_sql("DELETE FROM posts WHERE id = #{id}");
+
+  redirect '/cheerup'
+end

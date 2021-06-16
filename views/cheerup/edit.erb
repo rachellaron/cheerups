@@ -7,7 +7,14 @@
     <button>Create</button>
   </form>
 
+    <form action="/cheerup/<%= single_result["id"] %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE" />
+    <input type="submit" value="Delete" />
+    </form>
+
   <button><a href="/cheerup">Go Home</a></button>
+
+
 
 
 </div>
