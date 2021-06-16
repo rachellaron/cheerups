@@ -1,60 +1,174 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,700;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,700&display=swap');
 
-header {
-  text-align: center;
+nav {
+  color: #2C2C2C;
+  position: relative;
+  line-height: 5px;
+  margin-top: 5px;;
+  border-bottom: #FFBE6A solid 3px;
 }
+
+nav .ups {
+  text-indent: 33px;
+  color: #FFBE6A;
+}
+
+
+header {
+  margin-top: 80px;
+  margin-left: 200px;
+  margin-bottom: 80px;
+
+}
+
+header button {
+  margin-left: 0px;
+  width: 400px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+
 
 h6 {
   font-size: 12px;
   font-weight: lighter;
 }
 
-body {
-  background-color: #fdc479;
-  padding:60px;
+.login_button button {
+  position: absolute;
+  width: 200px;
+  top: -10px;
+  right: 16px;
+  border: rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+.get_started button {
+  position: absolute;
+  width: 200px;
+  left: 20px;
+  border: rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+h2 {
+  text-align: right;
+  margin-top: -30px;
+}
+
+.logout {
+  position: absolute;
+  background-color: #FFBE6A;
+  text-decoration: none;
   color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  display: block;
+  height: 35px;
+  right: -2px;
+  width: 200px;
+  text-align: center;
+  font-size: 15px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  font-family: 'Rubik', sans-serif;
+  margin-top: 20px;
+}
+
+body {
+  background-image: url("/projects/project2/cheerups/images/background.png");
+  background-position: left;
+  padding-right:60px;
+  padding-left: 60px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  color: #2C2C2C;
   font-family: 'Rubik', sans-serif;
 }
 
 
 .container {
+  margin-top: 20px;
   width: 100%;
-  height: 325px;
-  background-color: #ffbb62;
   border-radius: 15px;
   padding: 15px;
 }
 
-button {
-  background-color: #F7976E;
+.container h3 {
+  text-align: left;
+}
+
+button, .delete {
+  background-color: #FFBE6A; 
   text-decoration: none;
   color: white;
+  font-weight: bold;
   border: none;
   border-radius: 15px;
-  align-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 35px;
+  width: 20%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 15px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  font-family: 'Rubik', sans-serif;
+}
+
+button:hover, .delete:hover, .logout:hover {
+  background-color:#faab43;  
+  cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 button a {
-  background-color: #F7976E;
   text-decoration: none;
   color: white;
   border: none;
   border-radius: 15px;
   text-align: center;
- 
 }
 
 .single_cheerup {
-  text-align: center;
+  position: relative;
   gap: 10px;
-  background-color: #fdc479;
+  height: 150px;
+  background-color: rgba(255, 203, 135, 0.31);
   padding: 10px;
-  border-radius: 15px;
-  color: #2C2C2C;
-  border: 5px blue solid;
+  border-radius: 10px;
+  color: #333333;
+  
 }
 
+.show, .new, .edit, .login, .signup{
+  position: relative;
+  background-color:rgba(255, 203, 135, 0.31);
+  padding: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 15px;
+  color: #333333;
+  text-align: center;
+  font-size: 15px;
+}
+
+.edit h3, .new h3 {
+  text-align: center;
+}
+
+
+a {
+  font-size: 15px;
+  text-decoration: none;
+  color: #333333;
+}
 
 
 
@@ -62,8 +176,53 @@ button a {
   display: grid;
   gap:15px;
   grid-template-columns: repeat(auto-fill, 300px);
-  border: red solid 5px;
   
 }
 
+.likes {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 15px;
+}
 
+.message {
+  position: absolute;
+  top: 40%;
+  bottom: 50%;
+  width: 280px;
+  text-align: center;
+  font-size: 18px;
+}
+
+
+.fa-thumbs-up {
+  color: #faab43;
+  position: absolute;
+  bottom: 6px;
+  left: 16px;
+  font-size: 19px;
+  height: 10px;
+  padding: 0;
+  width: 10px;;
+  background-color: transparent;
+}
+
+.fa-thumbs-up:hover {
+  color:#FFBE6A;
+  background-color:transparent;
+  cursor:pointer;
+
+}
+
+.fa-heart {
+  color: red;
+}
+
+textarea {
+  resize: horizontal;
+  background-color: #fdd29a70;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+}

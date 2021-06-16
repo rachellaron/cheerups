@@ -1,13 +1,12 @@
 <div class="container">
-    <div class="show"></div>
+
+    <div class="show">
+    
         <h1><%= single_result["message"] %></h1>
-        <aside><%= single_result["email"] %></aside>
-        <%= single_result["likes"] %>
-        <br />
-        
-     <button><a href="/cheerup">Go Home</a></button>    
+            <i class="fas fa-heart"></i> <%=total[single_result["id"]]%>
+
+        <button><a href="/cheerup">Go Home</a></button>    
     </div>
 
-    
 
 </div>

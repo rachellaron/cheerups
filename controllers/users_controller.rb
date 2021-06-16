@@ -8,5 +8,10 @@ post '/users' do
   password = params["password"]
   
   create_user(first_name, email, password)
+
+  user = find_user( email )
+
+  session[:user_id] = user['id']
+  
   redirect '/'
 end

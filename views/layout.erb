@@ -7,15 +7,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/935f70fe09.js" crossorigin="anonymous"></script>
 </head>
-<body>
-  <header>
-  <h3>WELCOME TO</h3>
-  <h1>CHEERUPS</h1>
-  <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi porro libero inventore ducimus ipsa cupiditate, eius a, repellat ad exercitationem magnam tenetur veritatis nemo. Eveniet veritatis maiores error neque ea.</h6>
-  </header>
+<body>  
+
+<img src="" alt="">
+
+  <nav>
+      <a href="/cheerup"><h1 class="cheer">CHEER</h1></a>
+      <a href="/cheerup"><h1 class="ups">UPS<h1></a>
+
+      <div class="login_button">
+
+      <% if is_logged_in? %>
+        <h2>Welcome <%= current_user()['first_name'].capitalize %></h2>
+        <form action="/sessions" method="POST">
+            <input  type="hidden" name="_method" value="DELETE">
+            <input class="logout" type="submit" value="Logout">
+        </form>
+         <% else %>
+        <button><a href="/login">LOGIN</a></button>
+        <% end %>
+    </div>
+  </nav>
+    <header>
+    <h1>LET’S BRIGHTEN<br>YOUR DAY</h1>
+    <p>Cheerups is your place where you can share and read <br>positive messages about peoples days and lives.</p>
+    
+    <% if is_logged_in? %>
+    <% else %>
+    <button><a href="/sign_up">GET STARTED</a></button>
+    <% end %>
+</header>
 
   
-
   <%= yield %>
 
 </body>

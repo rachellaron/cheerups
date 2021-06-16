@@ -1,21 +1,24 @@
 <div class="container">
-<h3>WANT TO CHEERUP SOMEONE UP?</h3> 
-<h6>WRITE YOUR CHEERUP</h6>
+
+  <div class="edit">
+    <h3>EDIT YOUR CHEERUP</h3>
+    <p>Write about something that made your day. Something your grateful for. <br>
+  HINT: Keep it short and sweet, one sentence is perfect!*</p>
     <form action="/cheerup/<%= single_result["id"] %>" method="POST">
     <input type="hidden" name="_method" value="PUT">
-    <textarea maxlenght="250" name="message" id="" cols="30" rows="10" ><%= single_result["message"]%>"</textarea>
-    <button>Create</button>
+    <textarea maxlenght="250" name="message" id="" cols="60" rows="5" ><%= single_result["message"]%></textarea><p>*67 characters max</p>
+    <button>UPDATE</button>
   </form>
 
     <form action="/cheerup/<%= single_result["id"] %>" method="POST">
     <input type="hidden" name="_method" value="DELETE" />
-    <input type="submit" value="Delete" />
+    <input class="delete" type="submit" value="DELETE" />
     </form>
 
-  <button><a href="/cheerup">Go Home</a></button>
+  <button><a href="/cheerup">GO HOME</a></button>
 
 
-
+</div>
 
 </div>
 

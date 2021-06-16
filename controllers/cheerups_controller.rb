@@ -2,8 +2,8 @@
 # HOME PAGE INDEX - MOST LIKED CHEERUPS
 get '/cheerup' do
   results = all_cheerups
-
-  # puts see_likes()
+  session[:user_id]
+ 
   all_likes = run_sql("SELECT likes.posts_id, COUNT(*), posts.message
   FROM likes
   INNER JOIN posts
@@ -45,7 +45,25 @@ get '/cheerup/:id' do |id|
   results = run_sql("SELECT * FROM posts WHERE id = #{id}")
   params = [id]
 
-  erb :'cheerup/show', locals: { single_result: results[0]}
+  likes_count = []
+  likes_posts = []
+  likes_msg = []
+
+  all_likes = run_sql("SELECT likes.posts_id, COUNT(*), posts.message
+  FROM likes
+  INNER JOIN posts
+  ON likes.posts_id = posts.id
+  GROUP BY posts_id, posts.message
+  ORDER BY COUNT(*) DESC;")
+
+  all_likes.each do |like|
+      likes_posts.append(like["posts_id"])
+      likes_count.append(like["count"])
+      likes_msg.append(like["message"])
+    end
+total = likes_posts.zip(likes_count).to_h
+
+  erb :'cheerup/show', locals: { single_result: results[0], total: total}
 end
 
 # # EDITING SINGLE CHEERUP
