@@ -5,8 +5,11 @@
 /* LAYOUT.ERB STYLES */
 
 body {
-  background-image:url("/projects/project2/cheerups/images/Banner.png");
-  background-size: cover;
+  background-image:url("/Banner.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-x: 100px;
+  background-position-y: -80px;
   padding-right:60px;
   padding-left: 60px;
   padding-bottom: 10px;
@@ -27,6 +30,7 @@ nav .ups {
   color: #FFBE6A;
 }
 
+
 .nav_links {
   margin-left: 200px;
   position: absolute;
@@ -35,14 +39,21 @@ nav .ups {
   letter-spacing: 1px;
 }
 
-.nav_links a:hover {
+.nav_links a.working:hover {
   text-decoration: underline #FFBE6A 3px solid;
+  cursor: pointer;
+}
+
+.nav_links a:hover {
+  text-decoration: underline #797979 3px solid;
   cursor: not-allowed;
 }
 
+
+
 header {
   margin-top: 80px;
-  margin-left: 200px;
+  margin-left: 150px;
   margin-bottom: 80px;
 }
 
@@ -166,6 +177,7 @@ button a {
   position: relative;
   background-color:rgba(255, 203, 135, 0.31);
   padding: 10px;
+  line-height: 30px;
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 15px;
@@ -184,6 +196,9 @@ a {
   color: #333333;
 }
 
+a.link:hover {
+  text-decoration: underline 3px solid;
+}
 .all_cheerups {
   display: grid;
   gap:30px;

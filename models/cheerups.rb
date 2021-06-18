@@ -18,27 +18,27 @@ def create_cheerup(user_id, message)
   run_sql(sql_query, params)
 end
 
-# METHODS WONT WORK -->
 
-    def display_single_cheerup()
-      run_sql("SELECT * FROM posts WHERE id = #{id}")
-      params = [id]
-    end
 
-    def edit_cheerup()
-      run_sql("SELECT * FROM posts WHERE id = #{id}")
-      params = [id]
-    end
+def display_single_cheerup(id)
+  params = [id]
+  run_sql("SELECT * FROM posts WHERE id = $1", params)      
+end
 
-    def update_message(message, id)
-      query = "UPDATE posts SET message = $1 WHERE id = $2;"
-      params = [message, id]
-      run_sql( query, params )
-    end
+def edit_cheerup(id)
+  params = [id]
+  run_sql("SELECT * FROM posts WHERE id = $1", params)   
+end
 
-    def delete()
-      id = params['id']
-      run_sql("DELETE FROM posts WHERE id = #{id}");
-    end
+def update_message(message, id)
+  query = "UPDATE posts SET message = $1 WHERE id = $2;"
+  params = [message, id]
+  run_sql( query, params )
+end
+
+def delete_cheerup(id)
+  params = [id]
+  run_sql("DELETE FROM posts WHERE id = #{id}");
+end
 
 

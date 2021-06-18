@@ -1,5 +1,5 @@
 <div class="container">
-    <h3>MOST LIKED CHEERUPS</h3>
+    <h3>MOST RECENT CHEERUPS</h3>
     <section class="all_cheerups">
     
         <%likes_count = []%>
@@ -14,10 +14,10 @@
 
     <% all_cheerups.each_with_index do |cheerup, index|%>              
         <section class="single_cheerup">  
-           <a href="/cheerup/<%= cheerup["id"] %>">Show</a>
+           <a class="link" href="/cheerup/<%= cheerup["id"] %>">Show</a>
                 <% if is_logged_in? %>
                     <% if current_user["id"] == cheerup["user_id"]%>
-                        <a href="/cheerup/<%= cheerup["id"] %>/edit">Edit</a>
+                        <a class="link" href="/cheerup/<%= cheerup["id"] %>/edit">Edit</a>
                     <% else %>
                         <form action="/likes" method="POST">
                             <input type="hidden" name="posts_id" value="<%= cheerup['id'] %>">

@@ -25,10 +25,7 @@ end
 # # DISPLAYING SINGLE CHEERUP 
 get '/cheerup/:id' do |id|
 
-  # results = display_single_cheerup()
-  
-  results = run_sql("SELECT * FROM posts WHERE id = #{id}")
-  params = [id]
+  results = display_single_cheerup(id)
 
   likes_count = []
   likes_posts = []
@@ -47,11 +44,7 @@ end
 
 # # EDITING SINGLE CHEERUP
 get '/cheerup/:id/edit' do |id|
-
-  # results = edit_cheerup()
-
-  results = run_sql("SELECT * FROM posts WHERE id = #{id}")
-  params = [id]
+  results = edit_cheerup(id)
 
   erb :'cheerup/edit', locals: { single_result: results[0]}
 end
@@ -59,11 +52,7 @@ end
 # # UPDATE SINGLE CHEERUP 
 put '/cheerup/:id' do |id|
   message = params[:message]
-
-  # query = update_message(message, id)
-  query = "UPDATE posts SET message = $1 WHERE id = $2;"
-  params = [message, id]
-  run_sql( query, params )
+  query = update_message(message, id)
   
   redirect "/cheerup/#{id}"
 end
@@ -73,6 +62,6 @@ delete '/cheerup/:id' do
   id = params['id']
   run_sql("DELETE FROM posts WHERE id = #{id}");
   
-  # delete()
+  # delete_cheerup(id)
   redirect '/cheerup'
 end
