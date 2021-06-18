@@ -2,23 +2,20 @@
 
   <div class="edit">
     <h3>EDIT YOUR CHEERUP</h3>
-    <p>Write about something that made your day. Something your grateful for. <br>
-  HINT: Keep it short and sweet, one sentence is perfect!*</p>
-    <form action="/cheerup/<%= single_result["id"] %>" method="POST">
-    <input type="hidden" name="_method" value="PUT">
-    <textarea maxlenght="250" name="message" id="" cols="60" rows="5" ><%= single_result["message"]%></textarea><p>*67 characters max</p>
-    <button>UPDATE</button>
-  </form>
+    <p>Write about something that made your day. Something your grateful for. <br> HINT: Keep it short and sweet, one sentence is perfect!*</p>
+      <form action="/cheerup/<%= single_result["id"] %>" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <textarea maxlenght="250" name="message" id="" cols="60" rows="5" ><%= single_result["message"]%></textarea><p>*67 characters max</p>
+        <button>UPDATE</button>
+      </form>
 
     <form action="/cheerup/<%= single_result["id"] %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE" />
-    <input class="delete" type="submit" value="DELETE" />
+      <input type="hidden" name="_method" value="DELETE" />
+      <input class="delete" type="submit" value="DELETE" />
     </form>
 
-  <button><a href="/cheerup">GO HOME</a></button>
-
-
-</div>
-
+    <button><a href="/cheerup">GO HOME</a></button>
+  </div>
+  
 </div>
 

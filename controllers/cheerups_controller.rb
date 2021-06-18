@@ -3,23 +3,10 @@
 get '/cheerup' do
   results = all_cheerups
   session[:user_id]
- 
-  all_likes = run_sql("SELECT likes.posts_id, COUNT(*), posts.message
-  FROM likes
-  INNER JOIN posts
-  ON likes.posts_id = posts.id
-  GROUP BY posts_id, posts.message
-  ORDER BY COUNT(*) DESC;")
-
-  
+  all_likes = see_likes()
+    
   erb :'/cheerup/index', locals: { all_cheerups: results, all_likes: all_likes}
 end
-
-# # HOME PAGE _ RECENT CHEERUPS 
-get '/cheerup/recent'do
-  results = all_cheerups
-  erb :'/cheerup/recent', locals: {all_cheerups: results}
-end 
 
 # CREATE NEW CHEERUP 
 get '/cheerup/create' do
@@ -38,30 +25,22 @@ end
 # # DISPLAYING SINGLE CHEERUP 
 get '/cheerup/:id' do |id|
 
-      # results = display_single_cheerup(params)
-
-      # results = run_sql("SELECT * FROM messages WHERE id = $1")
-
+  # results = display_single_cheerup()
+  
   results = run_sql("SELECT * FROM posts WHERE id = #{id}")
   params = [id]
 
   likes_count = []
   likes_posts = []
-  likes_msg = []
 
-  all_likes = run_sql("SELECT likes.posts_id, COUNT(*), posts.message
-  FROM likes
-  INNER JOIN posts
-  ON likes.posts_id = posts.id
-  GROUP BY posts_id, posts.message
-  ORDER BY COUNT(*) DESC;")
+  all_likes = see_likes()
 
   all_likes.each do |like|
       likes_posts.append(like["posts_id"])
       likes_count.append(like["count"])
-      likes_msg.append(like["message"])
-    end
-total = likes_posts.zip(likes_count).to_h
+  end
+
+  total = likes_posts.zip(likes_count).to_h
 
   erb :'cheerup/show', locals: { single_result: results[0], total: total}
 end
@@ -69,20 +48,19 @@ end
 # # EDITING SINGLE CHEERUP
 get '/cheerup/:id/edit' do |id|
 
+  # results = edit_cheerup()
+
   results = run_sql("SELECT * FROM posts WHERE id = #{id}")
   params = [id]
 
-  # results = edit_cheerup(message)
-
-  puts results[0]["id"]
   erb :'cheerup/edit', locals: { single_result: results[0]}
 end
 
 # # UPDATE SINGLE CHEERUP 
 put '/cheerup/:id' do |id|
   message = params[:message]
-  # puts message
-  # puts id
+
+  # query = update_message(message, id)
   query = "UPDATE posts SET message = $1 WHERE id = $2;"
   params = [message, id]
   run_sql( query, params )
@@ -94,6 +72,7 @@ end
 delete '/cheerup/:id' do
   id = params['id']
   run_sql("DELETE FROM posts WHERE id = #{id}");
-
+  
+  # delete()
   redirect '/cheerup'
 end

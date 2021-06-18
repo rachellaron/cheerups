@@ -32,18 +32,4 @@ def find_user_by_id(id)
     end
 end
 
-# def find_user(email, id)
-#     sql_query = ("SELECT * FROM users WHERE email AND id = $1")
-#     params = [email, id]
-    
-#     p password
-
-#     results = run_sql(sql_query, params)
-  
-#     if results.to_a.length > 0
-#         return results[0]
-#     else
-#         return nil
-#     end
-# end
 

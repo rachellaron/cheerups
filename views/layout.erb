@@ -2,44 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
+  <title>Cheerups</title>
+
+  <link rel="shortcut icon" type="image/jpg" href="/projects/project2/cheerups/images/Banner.png"/>
   <link rel='stylesheet' href='/css/style.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/935f70fe09.js" crossorigin="anonymous"></script>
+  
 </head>
 <body>  
 
-<img src="" alt="">
-
   <nav>
-      <a href="/cheerup"><h1 class="cheer">CHEER</h1></a>
-      <a href="/cheerup"><h1 class="ups">UPS<h1></a>
+    <a href="/cheerup"><h1 class="cheer">CHEER</h1></a>
+    <a href="/cheerup"><h1 class="ups">UPS<h1></a>
+
+    <div class="nav_links">
+      <a href="">ABOUT</a>
+      <a href="">HELP</a>
+      <a href="">CONTACT</a>
+    </div>
 
       <div class="login_button">
 
-      <% if is_logged_in? %>
-        <h2>Welcome <%= current_user()['first_name'].capitalize %></h2>
-        <form action="/sessions" method="POST">
-            <input  type="hidden" name="_method" value="DELETE">
-            <input class="logout" type="submit" value="Logout">
-        </form>
-         <% else %>
-        <button><a href="/login">LOGIN</a></button>
+        <% if is_logged_in? %>
+          <h2>Welcome <%= current_user()['first_name'].capitalize %></h2>
+          <form action="/sessions" method="POST">
+              <input  type="hidden" name="_method" value="DELETE">
+              <input class="logout" type="submit" value="LOGOUT">
+          </form>
+        <% else %>
+          <button><a href="/login">LOGIN</a></button>
         <% end %>
-    </div>
+
+      </div>
   </nav>
-    <header>
+
+  <header>
     <h1>LET’S BRIGHTEN<br>YOUR DAY</h1>
     <p>Cheerups is your place where you can share and read <br>positive messages about peoples days and lives.</p>
     
-    <% if is_logged_in? %>
-    <% else %>
-    <button><a href="/sign_up">GET STARTED</a></button>
-    <% end %>
-</header>
-
-  
+      <% if is_logged_in? %>
+      <% else %>
+        <button><a href="/sign_up">GET STARTED</a></button>
+      <% end %>
+  </header>
   <%= yield %>
-
 </body>
 </html>

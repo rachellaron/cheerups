@@ -1,24 +1,16 @@
 <div class="container">
     <h3>MOST LIKED CHEERUPS</h3>
-    <%# <button><a href='/cheerup/recent'>VISIT MOST RECENT CHEERUPS</a></button> %>
-
     <section class="all_cheerups">
     
-    <%likes_count = []%>
-    <%likes_posts = []%>
-    <%likes_msg = []%>
+        <%likes_count = []%>
+        <%likes_posts = []%>
 
     <% all_likes.each do |like|%>
         <%likes_posts.append(like["posts_id"])%>
         <%likes_count.append(like["count"])%>
-        <%likes_msg.append(like["message"])%>
-        <%# <% puts like['posts_id']%>
     <% end %>
-<%total = likes_posts.zip(likes_count).to_h%>
- <%# <%puts likes_count.zip(likes_posts)%>
 
-<%puts total%>
-
+    <%total = likes_posts.zip(likes_count).to_h%>
 
     <% all_cheerups.each_with_index do |cheerup, index|%>              
         <section class="single_cheerup">  
@@ -34,22 +26,16 @@
                     <% end %>  
                 <% end %>
             <div class="message">
-                <%# MESSAGE <%=message [cheerup["message"]]%>
                 <%=cheerup["message"]%>
             </div>
             
-
             <div class="likes">
-            <i class="fas fa-heart"></i> <%=total[cheerup["id"]]%>
-                
+                <i class="fas fa-heart"></i> <%=total[cheerup["id"]]%>  
             </div>
         </section>    
     <% end %>  
-
     </section>
-
 </div>
-
 
 <% if is_logged_in? %>
     <button><a href="cheerup/create">Post a Cheerup!</a></button>
