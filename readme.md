@@ -29,10 +29,11 @@ You are also able to sign up or log in to create your own cheerup and like other
 
 **# 6. USER also has option to like specific posts**
 
-
-
+# FIRST WIREFRAME PLANNING
 ![Screen Shot 2021-06-11 at 6 11 38 pm](https://user-images.githubusercontent.com/81345558/122509240-c5d08f80-d046-11eb-9dd5-5d4e09b47595.png)
 
+# UPDATED WIREFRAME PLANNING
+![Screen Shot 2021-06-18 at 3 05 53 pm](https://user-images.githubusercontent.com/81345558/122509298-e3055e00-d046-11eb-8c6a-979659da84d0.png)
 
 # EXTRA
 Will be incorptating a filter section for the cheerups posts, so the user can filter between most liked, most recent, posts only done by them and only posts that arent done by them.
