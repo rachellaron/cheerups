@@ -61,6 +61,6 @@ end
 delete '/cheerup/:id' do
   id = params['id']
   delete_cheerup(id)
-  
+
   redirect '/cheerup'
 end

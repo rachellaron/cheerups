@@ -1,5 +1,4 @@
 def is_logged_in?
-  puts session
   if session[:user_id]
     return true
   else

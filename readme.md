@@ -46,6 +46,6 @@ Final Wireframe Planning -
 - Using `puts` in VS to find what the problem is in terminal
 - Take every step slowly, work on one thing at a time rather then mutiple
 
-# ERRORS
-- Delete method won't work in models but only in controllers 
+# PLANNING DIAGRAM
+
 
