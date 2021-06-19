@@ -28,10 +28,16 @@ You are also able to sign up or log in to create your own cheerup and like other
 6. USER also has option to like specific posts**
 
 First Wireframe Planning -
+
 ![Screen Shot 2021-06-11 at 6 11 38 pm](https://user-images.githubusercontent.com/81345558/122509240-c5d08f80-d046-11eb-9dd5-5d4e09b47595.png)
 
 Final Wireframe Planning - 
+
 ![Screen Shot 2021-06-18 at 3 05 53 pm](https://user-images.githubusercontent.com/81345558/122509298-e3055e00-d046-11eb-8c6a-979659da84d0.png)
+
+Diagram Planning - 
+
+![Screen Shot 2021-06-19 at 12 05 21 pm](https://user-images.githubusercontent.com/81345558/122628003-caed1780-d0f6-11eb-8e8e-5860c758d185.png)
 
 # EXTRA FEATURES I'D LIKE TO INCLUDE
 - Filter section for the user to filter for posts (most liked, most recent, own posts, only others posts)
@@ -46,6 +52,6 @@ Final Wireframe Planning -
 - Using `puts` in VS to find what the problem is in terminal
 - Take every step slowly, work on one thing at a time rather then mutiple
 
-# PLANNING DIAGRAM
+
 
 
