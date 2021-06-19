@@ -60,8 +60,7 @@ end
 # DELETE SINGLE CHEERUP 
 delete '/cheerup/:id' do
   id = params['id']
-  run_sql("DELETE FROM posts WHERE id = #{id}");
+  delete_cheerup(id)
   
-  # delete_cheerup(id)
   redirect '/cheerup'
 end

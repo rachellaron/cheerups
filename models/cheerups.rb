@@ -37,7 +37,6 @@ def update_message(message, id)
 end
 
 def delete_cheerup(id)
-  params = [id]
   run_sql("DELETE FROM posts WHERE id = #{id}");
 end
 
